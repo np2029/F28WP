@@ -1,0 +1,14 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+body {
+    background-color: grey;
+}
+
+#calcbox {
+    height: 90%;
+    width: 80%;
+    background-color: red;
+}
