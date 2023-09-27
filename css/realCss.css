@@ -3,12 +3,27 @@
     padding: 0px;
 }
 
+html {
+    height: 100%;
+    width: 100%;
+}
+
 body {
     background-color: grey;
+    height: 100%;
+    width: 100%;
 }
 
 #calcbox {
     height: 90%;
     width: 80%;
     background-color: red;
+}
+
+#display {
+    width: 90%;
+    height: 80px;
+    font-size: 72px;
+    background-color: aqua;
+    text-align: center;
 }
