@@ -31,17 +31,29 @@ body {
 #numpad {
     display: flex;
     flex-wrap: wrap;
-    width: 100%;
+    width: 60%;
     justify-content: center;
 }
 
 #buttons {
     width: 90%;
+    display: flex;
+    flex-wrap: nowrap;
 }
 
 .numButton {
     height: 100px;
-    width: 30%;
+    width: 25%;
     background-color: black;
     margin: 10px 10px 10px 10px;
+    font-size: 60px;
+    text-align: center;
+    color: white;
+}
+
+#ops {
+    display: flex;
+    flex-wrap: wrap;
+    width: 30%;
+    justify-content: center;
 }
