@@ -28,8 +28,30 @@ for (let x=0;x<oppArr.length;x++) {
     tempEle.click(function() {
         numPress(oppArr[x]);
     })
+    tempEle.addClass("oppButton")
     $("#ops").append(tempEle);
 }
+
+//C button
+let cancelButton = $("<div><p>C</p></div>");
+cancelButton.addClass("oppButton")
+cancelButton.click(function() {
+    calc = "";
+    displayText = "0";
+    $("#display").text(displayText);
+})
+$("#ops").append(cancelButton);
+
+//= button
+let equalsButton = $("<div><p>=</p></div>");
+equalsButton.addClass("oppButton");
+equalsButton.click(function() {
+    calc = ""+eval(calc);
+    displayText = calc;
+    $("#display").text(displayText);
+})
+$("#ops").append(equalsButton);
+
 
 //add something to calculation
 function numPress(val) {

@@ -41,7 +41,7 @@ body {
     flex-wrap: nowrap;
 }
 
-.numButton {
+.numButton, .oppButton {
     height: 100px;
     width: 25%;
     background-color: black;
@@ -49,6 +49,10 @@ body {
     font-size: 60px;
     text-align: center;
     color: white;
+}
+
+.oppButton {
+    background-color: crimson;
 }
 
 #ops {
