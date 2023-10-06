@@ -27,3 +27,21 @@ body {
     background-color: aqua;
     text-align: center;
 }
+
+#numpad {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: center;
+}
+
+#buttons {
+    width: 90%;
+}
+
+.numButton {
+    height: 100px;
+    width: 30%;
+    background-color: black;
+    margin: 10px 10px 10px 10px;
+}
