@@ -11,5 +11,8 @@ Established basic file structure and added some basic files of most types, every
 # Week 3
 Changed file structure slightly
 
+# Week 4
+Fully implemented calculator functionality, looks still WIP
+
 # In Progress
-"Calc" page and associated assets
+"Calc" page looks and layout
