@@ -1,0 +1,12 @@
+#rssStuff {
+    display: flex;
+    min-height: 300px;
+    flex-direction: column;
+    justify-content: space-evenly;
+    row-gap: 20px;
+}
+
+.rssBox {
+    border: 3px solid black;
+    border-radius: 10px;
+}
