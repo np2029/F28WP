@@ -3,7 +3,7 @@ var calc = "";
 
 //numpad
 var numArr = [];
-for (let x=1;x<11;x++) {
+for (let x=1;x<10;x++) {
     var y = $("<div></div>").addClass("numButton");
     y.html("<p>"+x+"</p>");
     $("#numpad").append(y);
@@ -13,11 +13,20 @@ for (let x=1;x<11;x++) {
     numArr[x] = y;
 }
 
-//change 10 to 0
-numArr[0] = numArr[10];
-delete(numArr[10]);
-console.log(numArr);
-numArr[0].text("0");
+//add 0 button
+let zero = $("<div></div>").addClass("numButton");
+zero.html("<p>"+0+"</p>");
+$("#numpad").append(zero);
+zero.click(function() {
+    numPress(0);
+});
+numArr[0] = zero;
+
+// //change 10 to 0
+// numArr[0] = numArr[10];
+// delete(numArr[10]);
+// console.log(numArr);
+// numArr[0].text("0");
 
 
 //operator buttons
