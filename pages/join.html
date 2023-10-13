@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"> </script> 
+        <script> 
+            $(document).ready(function(){ 
+                $("#divContent").click(function(){ 
+                    $("#divContent").load("https://api.github.com/repositories/2126244/commits?per_page=1"); 
+                }); 
+            }); 
+        </script> 
+        <style> 
+            body { 
+                text-align: center; 
+            } 
+            #divContent { 
+                font-size: 40px; 
+                font-weight: bold; 
+                color: green; 
+            } 
+        </style> 
+</head>
+<body>
+    <div id="divContent"> 
+        Default Content
+    </div> 
+</body>
+</html>
