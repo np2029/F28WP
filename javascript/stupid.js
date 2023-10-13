@@ -1,5 +1,6 @@
 async function test() {
     let prom = await fetch( 'https://rss.nytimes.com/services/xml/rss/nyt/HomePage.xml' );
+    // let prom2 = await fetch( 'https://xkcd.com/rss.xml');
     let text = await prom.text();
 
     // console.log( text.substring(0, 100 ) );
