@@ -28,7 +28,7 @@ function rainbowify(list) {
     // green 0 -> 255
     if (extra > 0) {currSectionLength = sectionLength+1;}
     else {currSectionLength = sectionLength}
-    sectionMult = 1 / currSectionLength
+    sectionMult = 1 / (currSectionLength-1)
     console.log(currSectionLength + " " + sectionMult)//TEST
     for (let x = index, i = 0; x < currSectionLength; index++, i++, x++) {
         green = sectionMult * 255 * i;
@@ -41,9 +41,9 @@ function rainbowify(list) {
     console.log("index at start of 2: "+index)//TEST
     if (extra > 0) {currSectionLength = sectionLength+1;}
     else {currSectionLength = sectionLength}
-    sectionMult = 1 / currSectionLength
+    sectionMult = 1 / (currSectionLength)
     console.log(currSectionLength + " " + sectionMult)//TEST
-    for (let x = 0, i = 0; x < currSectionLength; index++, i++, x++) {
+    for (let x = 0, i = 1; x < currSectionLength; index++, i++, x++) {
         console.log("index in 2 loop: "+index);//TEST
         red = 255 - (sectionMult * 255 * i);
         list[index].style.backgroundColor= "rgba("+red+","+green+","+blue+","+opac+")"
@@ -55,9 +55,9 @@ function rainbowify(list) {
     console.log("index at start of 3: "+index)//TEST
     if (extra > 0) {currSectionLength = sectionLength+1;}
     else {currSectionLength = sectionLength}
-    sectionMult = 1 / currSectionLength
+    sectionMult = 1 / (currSectionLength)
     console.log(currSectionLength + " " + sectionMult)//TEST
-    for (let x = 0, i = 0; x < currSectionLength; index++, i++, x++) {
+    for (let x = 0, i = 1; x < currSectionLength; index++, i++, x++) {
         console.log("index in 3 loop: "+index);//TEST
         blue = sectionMult * 255 * i;
         list[index].style.backgroundColor= "rgba("+red+","+green+","+blue+","+opac+")"
@@ -69,9 +69,9 @@ function rainbowify(list) {
     console.log("index at start of 4: "+index)//TEST
     if (extra > 0) {currSectionLength = sectionLength+1;}
     else {currSectionLength = sectionLength}
-    sectionMult = 1 / currSectionLength
+    sectionMult = 1 / (currSectionLength)
     console.log(currSectionLength + " " + sectionMult)//TEST
-    for (let x = 0, i = 0; x < currSectionLength; index++, i++, x++) {
+    for (let x = 0, i = 1; x < currSectionLength; index++, i++, x++) {
         console.log("index in 4 loop: "+index);//TEST
         green = 255-(sectionMult * 255 * i);
         list[index].style.backgroundColor= "rgba("+red+","+green+","+blue+","+opac+")"
