@@ -19,7 +19,7 @@ var svr = http.createServer( function (request, response) {
       case ".xml": mimetype = "text/xml"; break;
       default: i = -1;
     }
-    console.log(path);
+    console.log(path);//TESTING
     fs.readFile("." + path, function (err, data) {
       var code = 404;
       if ( err ) {
