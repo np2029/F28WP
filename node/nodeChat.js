@@ -22,11 +22,20 @@ io.on('connection', (socket) => {
     });
   });
 
-  io.on('connection', (socket) => {
+  function onConnect(socket) {
     socket.on('chat message', (msg) => {
-      io.emit('chat message', msg);
-    });
-  });
+      io.emit ('chat message', msg );
+    } );
+  }
+
+  //give it a reference to the function, don't call the function itself
+  io.on('connection', onConnect);
+
+  // io.on('connection', (socket) => {
+  //   socket.on('chat message', (msg) => {
+  //     io.emit('chat message', msg);
+  //   });
+  // });
 
 server.listen(3000, () => {
   console.log('listening on *:3000');
