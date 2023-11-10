@@ -9,6 +9,8 @@ app.get('/', (req, res) => {
     res.sendFile(__dirname + '/nodeApp.html');
 });
 
+app.use(express.static("../"));
+
 io.on('connection', (socket) => {
     console.log('a user connected');
     socket.on('disconnect', () => {
@@ -18,4 +20,11 @@ io.on('connection', (socket) => {
 
   server.listen(8080, () => {
     console.log('listening on *:8080');
+  });
+
+  //server side event handling
+  io.on('connection', (socket) => {
+    socket.on('tile clicked', ([tile, symbol]) => {
+      console.log('tile: '+tile+'\nsymbol: '+symbol);
+    });
   });

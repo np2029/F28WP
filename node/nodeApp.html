@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="nodeApp.css">
+    <link rel="stylesheet" type="text/css" href="../node/nodeApp.css">
 </head>
 <body>
     <h1 id="titleText"> test page </h1>
@@ -13,21 +13,28 @@
     <button>green</button>
 
     <div id="griDiv">
-        <div><img src="../media/temp.png"></div>
-        <div><img src="../media/temp.png"></div>
-        <div><img src="../media/temp.png"></div>
-        <div><img src="../media/temp.png"></div>
-        <div><img src="../media/temp.png"></div>
-        <div><img src="../media/temp.png"></div>
-        <div><img src="../media/temp.png"></div>
-        <div><img src="../media/temp.png"></div>
-        <div><img src="../media/temp.png"></div>
+        <div class="tile" onclick="tileClicked(1)"><img src="../media/temp.png"></div>
+        <div class="tile" onclick="tileClicked(2)"><img src="../media/temp.png"></div>
+        <div class="tile" onclick="tileClicked(3)"><img src="../media/temp.png"></div>
+        <div class="tile" onclick="tileClicked(4)"><img src="../media/temp.png"></div>
+        <div class="tile" onclick="tileClicked(5)"><img src="../media/temp.png"></div>
+        <div class="tile" onclick="tileClicked(6)"><img src="../media/temp.png"></div>
+        <div class="tile" onclick="tileClicked(7)"><img src="../media/temp.png"></div>
+        <div class="tile" onclick="tileClicked(8)"><img src="../media/temp.png"></div>
+        <div class="tile" onclick="tileClicked(9)"><img src="../media/temp.png"></div>
     </div>
+
+    <button id="resetButton" onclick="resetTiles()">
+        Reset
+    </button>
 
     <!-- IO STUFF HERE -->
     <script src="/socket.io/socket.io.js"></script>
     <script>
         var socket = io();
+
+        //symbol should be handled server side but stick it here for now
+        var symb = "x";
         
         var button = document.getElementById('redButton');
         button.addEventListener('click', function() {
@@ -38,6 +45,48 @@
         function changeColor(color) {
            document.getElementById("titleText").style.color=color;
         };
+
+        function resetTiles() {
+            let tiles = document.getElementsByClassName('tile');
+            for (x=0; x<tiles.length;x++) {
+                tiles[x].firstChild.src="../media/emptyTile.png";
+            }
+        }
+
+        function tileClicked(n) {
+            socket.emit('tile clicked',([n,symb]))
+        }
+
+        //add emitter event to all buttons
+        //DOESNT WORK BECAUSE IT PASSES X BY REFERENCE NOT VALUE
+        // let tiles = document.getElementsByClassName('tile');
+        //     for (x=0; x<tiles.length; x++) {
+        //         console.log("LOOP ITTERATING")
+        //         tiles[x].addEventListener('click', function() {
+        //             console.log(tiles[x]);
+        //             console.log(x);
+        //             socket.emit('tile clicked',([x,"test"]));
+        //         })
+        //         console.log("tile: ");
+        //         console.log(tiles[x]);
+        //         console.log(x);
+        //     }
+        // x = 99;
+        
+        //BOLLOCKS. IDGAF WHY. BORING VERSION GO
+        // //give each tile a class representing its order
+        // let tiles = document.getElementsByClassName('tile');
+        //     for (x=0; x<tiles.length;x++) {
+        //         tiles[x].classList.add("tile"+x);
+        //     }
+
+        // //use each tiles class to give it a relevant event listener
+        // Array.prototype.slice.call( tiles ).forEach(element => {
+        //     element.addEventListener('click', function() {
+        //         socket.emit('tile clicked',([element.classList[0],"test"]))
+        //     })
+        // });
+
     </script>
 </body>
 
