@@ -5,6 +5,8 @@ const server = http.createServer(app);
 const { Server } = require("socket.io");
 const io = new Server(server)
 
+var currentTurn = "x";
+
 app.get('/', (req, res) => {
     res.sendFile(__dirname + '/nodeApp.html');
 });
@@ -24,7 +26,14 @@ io.on('connection', (socket) => {
 
   //server side event handling
   io.on('connection', (socket) => {
-    socket.on('tile clicked', ([tile, symbol]) => {
-      console.log('tile: '+tile+'\nsymbol: '+symbol);
+    socket.on('tile clicked', (tile) => {
+      if (currentTurn == "x") {
+        io.emit('changeTile',[tile,currentTurn])
+        currentTurn = "o";
+      }
+      else if (currentTurn == "o") {
+        io.emit('changeTile',[tile,currentTurn])
+        currentTurn = "x";
+      }
     });
   });

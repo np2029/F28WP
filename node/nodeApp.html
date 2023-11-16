@@ -13,15 +13,15 @@
     <button>green</button>
 
     <div id="griDiv">
-        <div class="tile" onclick="tileClicked(1)"><img src="../media/temp.png"></div>
-        <div class="tile" onclick="tileClicked(2)"><img src="../media/temp.png"></div>
-        <div class="tile" onclick="tileClicked(3)"><img src="../media/temp.png"></div>
-        <div class="tile" onclick="tileClicked(4)"><img src="../media/temp.png"></div>
-        <div class="tile" onclick="tileClicked(5)"><img src="../media/temp.png"></div>
-        <div class="tile" onclick="tileClicked(6)"><img src="../media/temp.png"></div>
-        <div class="tile" onclick="tileClicked(7)"><img src="../media/temp.png"></div>
-        <div class="tile" onclick="tileClicked(8)"><img src="../media/temp.png"></div>
-        <div class="tile" onclick="tileClicked(9)"><img src="../media/temp.png"></div>
+        <div class="tile" onclick="tileClicked(0)"><img src="../media/emptyTile.png"></div>
+        <div class="tile" onclick="tileClicked(1)"><img src="../media/emptyTile.png"></div>
+        <div class="tile" onclick="tileClicked(2)"><img src="../media/emptyTile.png"></div>
+        <div class="tile" onclick="tileClicked(3)"><img src="../media/emptyTile.png"></div>
+        <div class="tile" onclick="tileClicked(4)"><img src="../media/emptyTile.png"></div>
+        <div class="tile" onclick="tileClicked(5)"><img src="../media/emptyTile.png"></div>
+        <div class="tile" onclick="tileClicked(6)"><img src="../media/emptyTile.png"></div>
+        <div class="tile" onclick="tileClicked(7)"><img src="../media/emptyTile.png"></div>
+        <div class="tile" onclick="tileClicked(8)"><img src="../media/emptyTile.png"></div>
     </div>
 
     <button id="resetButton" onclick="resetTiles()">
@@ -54,8 +54,13 @@
         }
 
         function tileClicked(n) {
-            socket.emit('tile clicked',([n,symb]))
+            socket.emit('tile clicked',(n))
         }
+
+        socket.on('changeTile',function([num,symb]) {
+            console.log("NUM: "+num+"\nSYMB "+symb)
+            document.getElementsByClassName('tile')[num].firstChild.src="../media/"+symb+"tile.png";
+        })
 
         //add emitter event to all buttons
         //DOESNT WORK BECAUSE IT PASSES X BY REFERENCE NOT VALUE
